@@ -1,0 +1,17 @@
+.cardsContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+
+    padding: 2rem;
+    /* background-color: #236969; */
+    background-color: none;
+    max-width: 100rem;
+    
+}
+/* @media(max-width: 768px) {
+    .cardsContainer{
+        flex-direction: column;
+        gap: 1rem;
+    }
+} */
