@@ -15,8 +15,8 @@ function Card(props) {
          props.removeFavorite(id);
       } else {
          setIsFav(true);
-         props.addFavorite(props)
-      }
+         props.addFavorite({ ...props, isFav: true });
+  }
    }
 
    useEffect(() => {
@@ -31,12 +31,12 @@ function Card(props) {
       <div className={styles.cardContainer}>
       {
    isFav ? (
-      <button onClick={handleFavorite}>❤️</button>
+      <button onClick={() => handleFavorite(props.id)}>❤️</button>
    ) : (
-      <button onClick={handleFavorite}>🤍</button>
+      <button onClick={() => handleFavorite(props.id)}>🤍</button>
    )
 }
-         <button className={styles.cardButton} onClick={() => props.onClose(props.id)}>X</button>
+{props.showClose && <button className={styles.cardButton} onClick={() => props.onClose(props.id)}>X</button>}
          <h2>Id: {props.id}</h2>
          <img className={styles.image} src={props.image} alt='' />
          <Link to={`/detail/${props.id}`}>

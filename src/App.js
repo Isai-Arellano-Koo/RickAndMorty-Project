@@ -71,7 +71,7 @@ const login = (userData) => {
          {location.pathname !== '/' && <Nav onSearch={onSearch}/>}
          <Routes>
             <Route path='/' element={<Form login={login}/>}/>
-            <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
+            <Route path='/home' element={<Cards characters={characters} onClose={onClose} showClose = {true} />} />
             <Route path='/about' element={<About />}/>
             <Route path='/favorites' element={<Favorites />}/>
             <Route path='/detail/:id' element={<Detail />}/>
