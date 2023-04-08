@@ -3,9 +3,10 @@ import Card from '../Card/Card';
 
 export default function Cards({characters, onClose}) {
   
-   return (<div className={styles.cardsConteiner}>
+   return (<div className={styles.cardsContainer}>
          {characters.map((character) => {
             return (<Card 
+                  key={character.id}
                   id = {character.id}
                   name = {character.name}
                   status = {character.status}

@@ -14,6 +14,9 @@ return (
             <Link to='/home'>
                 <button>Home</button>
             </Link>
+            <Link to='/favorites'>
+                <button>Favorites</button>
+            </Link>
             <SearchBar onSearch = {props.onSearch}/>
         </div>
 )
