@@ -29,19 +29,28 @@ useEffect(() => {
    !access && navigate('/');
 }, [access, navigate]);
 
-// ! CRENDENCIALES
-const email = 'isai@mail.com'
-const password = 'password123' 
+// // ! CRENDENCIALES
+// const email = 'isai@mail.com'
+// const password = 'password123' 
 
 // ! FUNCION LOGIN
 
-const login = (userData) => {
-   if (userData.password === password && userData.email === email) {
-      setAccess(true);
-      navigate('/home');
-   } else {
-      alert('Credenciales incorrectas')
-   }
+// const login = (userData) => {
+//    if (userData.password === password && userData.email === email) {
+//       setAccess(true);
+//       navigate('/home');
+//    } else {
+//       alert('Credenciales incorrectas')
+//    }
+// }
+function login(userData) {
+   const { email, password } = userData;
+   const URL = 'http://localhost:3001/rickandmorty/login/';
+   axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+      const { access } = data;
+      setAccess(data);
+      access && navigate('/home');
+   });
 }
 
    function onSearch(id) {

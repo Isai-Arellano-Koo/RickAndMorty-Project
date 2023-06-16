@@ -2,12 +2,13 @@ const validation = (userData, errors, setErrors) => {
 
 // ! VALIDACION EMAIL
 
+let regex = new RegExp('!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/');
 
     if (userData.email === '') {
       setErrors({...errors, email: 'Campo Obligatorio'});
     } else if (userData.email.length > 35) {
       setErrors({...errors, email: 'No puede superar los 35 caracteres'});
-    } else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(userData.email)) {
+    } else if (regex.test(userData.email)) {
       setErrors({...errors, email: 'Email invalido'});
     } else {
       setErrors({...errors, email: ''});
